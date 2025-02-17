@@ -28,6 +28,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+# Qo'shimcha Endpointlar: Standart CRUD operatsiyalaridan tashqari maxsus harakatlar qo'shish imkonini beradi.
+# HTTP Metodlarini Belgilash: Qaysi HTTP metodlaridan foydalanishni belgilash (masalan, GET, POST).
+# Maxsus Logika: O'ziga xos logikani bajaradigan metodlar yaratish imkonini beradi.
+# action vazifalari haqida malumot like yoqti yoqmadi uchun balli siystema
+
     @action(detail=True, methods=['post'])
     def upvote(self, request, pk=None):
         comment = self.get_object()
